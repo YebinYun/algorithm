@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 int main() {
-  int N;
+    
+  int N, V, count = 0;
   int arr[101];
-  int V;
-  int count = 0; 
 
   scanf("%d", &N);
 
