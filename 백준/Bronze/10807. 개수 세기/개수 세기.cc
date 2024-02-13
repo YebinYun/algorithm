@@ -1,13 +1,12 @@
 #include <stdio.h>
-// #define MAX_SIZE 101
+#define MAX_SIZE 101
 
 int main() {
     
   int N;
   scanf("%d", &N);
     
-  int arr[101];
-  // int arr[MAX_SIZE];
+  int arr[MAX_SIZE];
 
   for(int i = 0; i < N; i++) {
     scanf("%d", &arr[i]);
