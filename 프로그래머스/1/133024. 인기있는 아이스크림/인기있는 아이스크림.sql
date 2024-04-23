@@ -1,0 +1,5 @@
+SELECT FLAVOR
+FROM FIRST_HALF 
+
+# 정렬 : 총주문량 내림차순, 출하 번호 오름차순
+ORDER By TOTAL_ORDER DESC, SHIPMENT_ID
