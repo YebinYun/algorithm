@@ -1,0 +1,8 @@
+SELECT FACTORY_ID, FACTORY_NAME, ADDRESS
+FROM FOOD_FACTORY
+
+# 조건 : 강원도에 위치한 식품공장
+WHERE ADDRESS LIKE '강원도%'
+
+# 정렬 : 공장 ID 오름차순
+ORDER By FACTORY_ID
