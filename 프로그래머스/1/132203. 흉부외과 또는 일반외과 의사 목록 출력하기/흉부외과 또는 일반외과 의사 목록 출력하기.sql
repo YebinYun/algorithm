@@ -1,0 +1,8 @@
+SELECT DR_NAME, DR_ID, MCDP_CD, DATE_FORMAT(HIRE_YMD, '%Y-%m-%d') AS HIRE_YMD
+FROM DOCTOR
+
+# 조건 : 흉부외과(CS) || 일반외과(GS)
+WHERE MCDP_CD = 'CS' OR MCDP_CD = 'GS'
+
+# 정렬 : 고용일자 내림차순, 이름 오름차순
+ORDER By HIRE_YMD DESC, DR_NAME ASC
