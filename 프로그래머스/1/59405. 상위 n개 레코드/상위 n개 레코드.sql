@@ -1,3 +1,5 @@
 SELECT NAME
 FROM ANIMAL_INS
+
+-- 조건 : 동물 보호소에 가장 먼저 들어온 동물의 이름을 조회
 WHERE DATETIME IN (SELECT MIN(DATETIME) FROM ANIMAL_INS)
