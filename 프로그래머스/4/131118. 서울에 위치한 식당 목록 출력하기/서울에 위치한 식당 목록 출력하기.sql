@@ -1,0 +1,13 @@
+SELECT ri.REST_ID, ri.REST_NAME, ri.FOOD_TYPE, ri.FAVORITES, ri.ADDRESS, ROUND(AVG(rr.REVIEW_SCORE),2) AS SCORE
+FROM REST_INFO AS ri
+JOIN REST_REVIEW AS rr
+
+# 두 테이블이 결합하는 조건 (INNER JOIN) : REST_ID
+# 조건 : 서울에 위치한 식당
+WHERE ri.REST_ID = rr.REST_ID AND ADDRESS LIKE '서울%'
+
+# 동일한 이름을 가진 REST_NAME 그룹화
+GROUP BY REST_NAME
+
+# 정렬 : 평균점수 내림차순, 즐겨찾기수 내림차순
+ORDER By SCORE DESC, ri.FAVORITES DESC;
