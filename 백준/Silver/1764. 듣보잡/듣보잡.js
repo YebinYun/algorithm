@@ -1,17 +1,20 @@
 const fs = require("fs");
-const input = fs.readFileSync(0, "utf8").trim().split(/\s+/);
+const input = fs.readFileSync(0, "utf8").trim().split("\n");
 
-const N = Number(input[0]);
-const M = Number(input[1]);
+const [N, M] = input[0].split(" ").map(Number);
+const listen = new Set();
 
-const listen = input.slice(2, 2 + N);
-const see = input.slice(2 + N, 2 + N + M);
+// 듣도 못한 사람 저장
+for (let i = 1; i <= N; i++) {
+  listen.add(input[i]);
+}
 
-const set = new Set(listen);
 const result = [];
 
-for (const name of see) {
-  if (set.has(name)) result.push(name);
+// 보도 못한 사람은 즉시 비교만 하고 저장하지 않음
+for (let i = N + 1; i <= N + M; i++) {
+  const name = input[i];
+  if (listen.has(name)) result.push(name);
 }
 
 result.sort();
