@@ -1,26 +1,28 @@
 const fs = require("fs");
-const input = fs.readFileSync(0, "utf8").trim().split("\n");
+const input = fs.readFileSync(0, "utf8").trim().split(/\s+/);
 
 const count = Number(input[0]);
 const deque = [];
 const output = [];
 
-for (let i = 1; i <= count; i++) {
-  const commandLine = input[i];
+let idx = 1;
 
-  if (commandLine.startsWith("push_front")) {
-    const [, value] = commandLine.split(" ");
-    deque.unshift(Number(value));
-    continue;
-  }
+for (let processed = 0; processed < count; processed++) {
+  const cmd = input[idx++];
 
-  if (commandLine.startsWith("push_back")) {
-    const [, value] = commandLine.split(" ");
-    deque.push(Number(value));
-    continue;
-  }
+  switch (cmd) {
+    case "push_front": {
+      const value = Number(input[idx++]);
+      deque.unshift(value);
+      break;
+    }
 
-  switch (commandLine) {
+    case "push_back": {
+      const value = Number(input[idx++]);
+      deque.push(value);
+      break;
+    }
+
     case "pop_front":
       output.push(deque.length === 0 ? "-1" : String(deque.shift()));
       break;
